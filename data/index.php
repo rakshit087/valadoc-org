@@ -46,58 +46,62 @@ if ($first == null || $first === "index") { // Homepage
 }
 
 ?>
+
 <!doctype html>
+
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta itemprop="image" content="https://valadoc.org/images/preview.png">
-  <meta name="fragment" content="!">
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="theme-color" content="#403757">
-  <meta property="og:description" content="The canonical source for Vala API references.">
-  <meta property="og:image" content="https://valadoc.org/images/preview.png">
-  <meta property="og:title" content="<?php echo get_title ($page); ?>">
-  <meta property="og:type" content="website">
-  <title><?php echo get_title ($page); ?></title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Droid+Serif:400|Roboto+Mono:400,500,700,400italic">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="/styles/main.css" type="text/css">
-  <link rel="apple-touch-icon" href="/images/icon.png" />
-  <link rel="shortcut icon" href="/images/favicon.ico">
-</head>
-<body>
-  <nav>
-    <div id="search-box">
-      <input id="search-field" type="text" placeholder="Search" autocompletion="off" autosave="search" /><img id="search-field-clear" src="/images/clean.svg" />
-    </div>
-    <a class="title" href="/index.htm"><img alt="Valadoc" src="/images/logo.svg"/></a>
-    <ul>
-      <li><a href="https://plus.google.com/communities/113287185626826620884" target="_blank" title="Google+"><i class="fa fa-google-plus"></i></a>
-      <li><a href="http://stackoverflow.com/documentation/vala/" target="_blank" title="stackoverflow"><i class="fa fa-stack-overflow"></i></a>
-      <li><a href="https://www.reddit.com/r/vala/" target="_blank" title="reddit"><i class="fa fa-reddit"></i></a>
-      <li><a href="/markup.htm" title="Markup Info"><i class="fa fa-info-circle"></i></a>
-    </ul>
-  </nav>
-  <div id="sidebar">
-    <ul class="navi_main" id="search-results"></ul>
-    <div id="navigation-content">
+  <head>
+    <meta charset="UTF-8">
+    <meta itemprop="image" content="https://valadoc.org/images/preview.png">
+    <meta name="fragment" content="!">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#403757">
+    <meta property="og:description" content="The canonical source for Vala API references.">
+    <meta property="og:image" content="https://valadoc.org/images/preview.png">
+    <meta property="og:title" content="<?php echo get_title ($page); ?>">
+    <meta property="og:type" content="website">
+    <title><?php echo get_title ($page); ?></title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Droid+Serif:400|Roboto+Mono:400,500,700,400italic">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/styles/main.css" type="text/css">
+    <link rel="apple-touch-icon" href="/images/icon.png" />
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  </head>
+  <body>
+    <nav class="sidebar">
+      <a href="/">
+        <img src="/images/logo.svg" alt="Valadoc" height="42px" width="121.75px">
+      </a>
+      <div class="search">
+        <input type="text" placeholder="Search">
+      </div>
       <?php @readfile (__DIR__ . "/" . $page . ".navi.tpl"); ?>
-    </div>
-  </div>
-  <div id="content-wrapper">
-    <div id="content">
-      <?php @readfile (__DIR__ . "/" . $page . ".content.tpl"); ?>
-    </div>
-    <div id="comments" />
-  </div>
-  <footer>
-    Copyright © <?php echo date('Y'); ?> Valadoc.org | Documentation is licensed under the same terms as its upstream |
-    <a href="https://github.com/Valadoc/valadoc-org/issues" target="_blank">Report an Issue</a>
-  </footer>
-  <script type="text/javascript" src="/scripts/jquery.min.js"></script>
-  <script type="text/javascript" src="/scripts/jquery.ba-hashchange.min.js"></script>
-  <script type="text/javascript" src="/scripts/wtooltip.js"></script>
-  <script type="text/javascript" src="/scripts/valadoc.js"></script>
-  <script type="text/javascript" src="/scripts/main.js"></script>
-</body>
+    </nav>
+
+    <main>
+      <header>
+        <div class="sidebar-menu">&#9776;</div>
+        <a href="/">
+          <img src="/images/logo.svg" alt="Valadoc" height="42px" width="121.75px">
+        </a>
+      </header>
+
+      <div class="page__content">
+        <?php @readfile (__DIR__ . "/" . $page . ".content.tpl"); ?>
+      </div>
+
+      <footer>
+        <span>Copyright © <?php echo date('Y'); ?> Valadoc.org | Documentation is licensed under the same terms as its upstream</span>
+        <ul>
+          <a href="https://github.com/Valadoc/valadoc-org/issues" target="_blank"><li>Issues</li></a>
+        </ul>
+      </footer>
+
+      <script type="text/javascript" src="/scripts/jquery.min.js"></script>
+      <script type="text/javascript" src="/scripts/jquery.ba-hashchange.min.js"></script>
+      <script type="text/javascript" src="/scripts/wtooltip.js"></script>
+      <script type="text/javascript" src="/scripts/valadoc.js"></script>
+      <script type="text/javascript" src="/scripts/main.js"></script>
+    </main>
+  </body>
 </html>

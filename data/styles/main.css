@@ -1,14 +1,55 @@
-html {
+/**************************
+ * Valadoc.org Stylesheet *
+ **************************/
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+/**************
+ * Typography *
+ **************/
+
+body {
     color: #111;
     font-family: "Open Sans", "Droid Sans", Helvetica, sans-serif;
     font-size: 12px;
     font-weight: 400;
 }
 
-body {
-    margin: 0;
-    min-width: 720px;
-    padding: 48px 0 0;
+h1 {
+    font-size: 32px;
+    font-weight: 200;
+}
+
+h2 {
+    font-size: 28px;
+    font-weight: 300;
+}
+
+h3 {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+h4 {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+p {
+    font-size: 14px;
+    padding: 10px 0;
+    line-height: 1.6em;
+    max-width: 65ch;
 }
 
 a {
@@ -16,272 +57,234 @@ a {
     text-decoration: none;
 }
 
-h2,
-h3 {
-    font-family: "Droid Serif", serif;
-    font-weight: 300;
-}
-
-p {
-    font-size: 14px;
+a:hover {
+    text-decoration: underline;
 }
 
 /***********
  * Nav Bar *
  ***********/
 
-nav {
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-    background-color: #403757;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    color: rgba(255, 255, 255, 0.8);
+body {
     display: flex;
-    font-size: 16px;
-    height: 48px;
-    justify-content: space-between;
-    padding: 0 6px;
-    position: fixed;
-    top: 0;
-    width: calc(100% - 12px);
-    z-index: 1000;
+    flex-direction: row;
+    min-width: 250px;
 }
 
-nav a,
-nav a:visited,
-nav a:active {
-    color: #fff;
-    padding: 4px 8px;
-    text-decoration: none;
-}
-
-nav a:hover {
-    opacity: 0.8;
-}
-
-nav ul {
-    display: inline-block;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-nav li,
-nav span {
-    display: inline;
-    vertical-align: middle;
-}
-
-nav .title {
-    display: inline-block;
-    -webkit-flex-grow: 1;
-    -ms-flex-positive: 1;
-    flex-grow: 1;
-    height: 28px;
-}
-
-#search-box {
-    display: none;
-    width: auto;
-}
-
-#search-field {
-    background-clip: padding-box;
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    border-radius: 3px;
-    font-size: 14px;
-    padding: 6px;
-    transition: all 200ms ease-in-out;
-    width: 214px;
-}
-
-#search-field:focus {
-    border-color: rgba(58, 65, 111, 0.5);
-    box-shadow: 0 1px 3px rgba(58, 65, 111, 0.12);
-    outline: none;
-}
-
-#search-field-clear {
-    cursor: pointer;
-    margin-left: -24px;
-    margin-right: 12px;
-    opacity: 0.3;
-    transition: all 200ms ease-in-out;
-    vertical-align: middle;
-}
-
-#search-field:focus ~ #search-field-clear {
-    opacity: 0.75;
-}
-
-/***********
- * Sidebar *
- ***********/
-
-#sidebar {
+nav.sidebar {
     background-color: #fcfcfc;
     border-right: 1px solid #dedede;
-    display: inline-block;
-    overflow-y: auto;
-    position: fixed;
-    top: 48px;
-    width: 240px;
-    height: 100%;
-}
-
-#sidebar a {
     color: #666;
-    display: inline-block;
-    text-decoration: none;
-    padding: 3px 6px;
-    width: 100%;
-}
-
-#sidebar .site_navigation a::before {
-    content: '';
-    display: inline-block;
-    height: 16px;
-    width: 16px;
-    margin-right: 6px;
-    vertical-align: middle;
-}
-
-#sidebar hr {
-    background-color: #dedede;
-    border: 0;
-    border-bottom: 1px solid #fff;
-    border-top: 1px solid #dedede;
-    height: 0;
-    margin: 6px 0;
-}
-
-#sidebar ul {
-    font-size: 12px;
-    list-style: none;
-    margin: 6px 0;
-    padding: 0;
-}
-
-#sidebar li {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
-#sidebar li:hover {
-    background: rgba(0, 0, 0, 0.1);
-}
-
-#sidebar .external-link::after {
-    background-image: url(/images/external_link.svg);
-    content: '';
-    display: inline-block;
-    height: 12px;
-    width: 12px;
-    margin-left: 3px;
-    vertical-align: middle;
-}
-
-#navigation-content {
-    overflow: auto;
-}
-
-.search-result:nth-child(even) {
-    background-color: rgba(0, 0, 0, 0.02);
-}
-
-.search-result a .search-package {
-    display: inline;
-    font-style: italic;
-}
-
-.search-result a .search-desc {
     display: block;
-    font-size: 10px;
-    opacity: 0.75;
-    padding-left: 22px;
+    flex-direction: column;
+    flex: 0.15 0 auto;
+    height: 100vh;
+    left: -100%;
+    max-width: 75vw;
+    overflow-y: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: left 200ms ease;
+    z-index: 9001;
 }
 
-.search-selected {
-    background-color: #776c93 !important;
+nav.sidebar.active {
+    left: 0;
 }
 
-.search-selected span {
-    color: #eeeeec;
-}
-
-.site_navigation {
-    width: 100%;
-}
-
-.navi_inline {
-    font-size: 12px;
-    line-height: 21px;
-    list-style: none;
-    margin: 6px 3px;
-    padding-left: 6px;
-}
-
-.navi_inline {
-    padding-left: 12px;
-}
-
-#sidebar .navi_main a {
-    display: initial;
-    padding: 0;
-}
-
-#sidebar .navi_main a::before {
+nav.sidebar hr {
     display: none;
 }
 
-#sidebar .navi_main li {
-    padding: 3px 6px;
+nav.sidebar > a[href="/"] {
+    align-items: center;
+    background-color: #403757;
+    display: none;
+    flex: 0 0 auto;
+    height: 64px;
+    justify-content: center;
 }
 
-.navi_inline li::before,
-.navi_main li::before {
-    content: '';
-    display: inline-block;
-    height: 16px;
-    width: 16px;
-    margin-right: 6px;
-    vertical-align: middle;
+nav.sidebar > div.search > input[type="text"] {
+    border: none;
+    border-bottom: 1px solid #dedede;
+    font-size: 14px;
+    height: 64px;
+    outline: none;
+    padding: 20px;
+    transition: background 100ms ease;
+    width: 100%;
 }
 
-#sidebar .abstract_class > a,
-.navi_inline .abstract_class > a {
-    font-style: italic;
+nav.sidebar > div.search > input[type="text"]:focus {
+    background-color: rgba(0, 0, 0, 0.03);
 }
 
-/***********
- * Content *
- ***********/
+nav.sidebar > .site_navigation {
+    display: block;
+    flex-direction: column;
+    flex: 1 1 auto;
+    overflow-y: auto;
+}
 
-#content-wrapper {
+nav.sidebar > .site_navigation ul {
     display: flex;
     flex-direction: column;
-    margin-left: 240px;
-    min-height: calc(100vh - 48px);
-    text-align: left;
-    vertical-align: top;
-    width: calc(100% - 240px);
+    flex: 0 0 auto;
+    overflow-y: auto;
 }
 
-#content {
-    flex: 1;
-    max-width: 1000px;
-    margin: 12px auto;
-    padding: 0 24px;
-    width: calc(100% - 48px);
+nav.sidebar > .site_navigation ul:not(:first-of-type) {
+    border-top: 1px solid #dedede;
 }
 
-#content h1 {
+nav.sidebar > .site_navigation ul:last-of-type {
+    flex: 1 1 auto;
+}
+
+nav.sidebar > .site_navigation li {
+    align-items: center;
+    display: inline-flex;
+    padding: 8px 12px;
+}
+
+nav.sidebar > .site_navigation li::before {
+    background-position: 50%;
+    background-repeat: no-repeat;
+    content: "";
+    height: 16px;
+    margin-right: 12px;
+    width: 16px;
+}
+
+nav.sidebar > .site_navigation a {
+    color: inherit;
+    text-decoration: none;
+}
+
+main {
+    align-content: flex-start;
+    align-items: stretch;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    overflow-y: auto;
+}
+
+main > header {
+    align-items: center;
+    background-color: #403757;
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    flex: 0 0 auto;
+    font-size: 18px;
+    height: 64px;
+    justify-content: center;
+}
+
+main > header,
+main > header * {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 64px;
+}
+
+main > header > div {
+    cursor: pointer;
+    height: 64px;
+    width: 64px;
+}
+
+main > header > div:hover,
+main > header > div:active {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+main > header > a {
+    flex: 1 1 auto;
+}
+
+main > .page__content {
+    box-sizing: content-box;
+    flex: 1 0 auto;
+    padding: 32px;
+}
+
+main > footer {
+    background-color: #fefefe;
+    border-top: 1px solid #eee;
+    display: flex;
+    flex-wrap: wrap;
+    flex: 0 0 auto;
+    justify-content: space-between;
+}
+
+main > footer * {
+    display: flex;
+}
+
+main > footer span {
+    padding: 10px;
+}
+
+main > footer ul {
+    align-content: stretch;
+    align-items: stretch;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+main > footer a {
+    align-items: center;
+    color: inherit;
+    padding: 10px;
+    text-decoration: none;
+    transition: background 50ms ease;
+}
+
+main > footer a:hover,
+main > footer a:active {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 760px) {
+    nav.sidebar {
+        position: static;
+    }
+
+    nav.sidebar > a[href="/"] {
+        display: flex;
+    }
+
+    main > header {
+        display: none;
+    }
+}
+
+@media (min-height: 400px) {
+    nav.sidebar {
+        display: flex;
+    }
+}
+
+@media (min-height: 750px) {
+    nav.sidebar > ul {
+        display: flex;
+    }
+}
+
+/************************
+ * Valadoc site_content *
+ ************************/
+
+.site_content h1 {
     margin-bottom: 0;
 }
 
-#content hr {
+.site_content hr {
     border: 0;
     color: #b4a0c1;
     background-color: #b4a0c1;
@@ -394,21 +397,6 @@ nav .title {
     height: 10px;
 }
 
-#logo {
-    float: left;
-    margin-left: 17px;
-    display: none;
-}
-
-#logo img {
-    width: 203px;
-    height: 52px;
-}
-
-#comments {
-    margin: 12px;
-}
-
 .tooltip {
     background-color: rgba(250, 250, 250, 0.95);
     border-radius: 3px;
@@ -430,12 +418,6 @@ nav .title {
 
 .site_title {
     text-align: left;
-}
-
-footer {
-    background-color: #fafafa;
-    color: #666;
-    padding: 16px;
 }
 
 .main_source {
