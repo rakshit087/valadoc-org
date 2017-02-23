@@ -69,26 +69,31 @@ if ($first == null || $first === "index") { // Homepage
   </head>
   <body>
     <nav class="sidebar">
-      <a href="/">
+      <a href="/index.htm" class="logo">
         <img src="/images/logo.svg" alt="Valadoc" height="42px" width="121.75px">
       </a>
       <div class="search">
-        <input type="text" placeholder="Search">
+        <input type="text" placeholder="Search" id="search-field">
       </div>
-      <?php @readfile (__DIR__ . "/" . $page . ".navi.tpl"); ?>
+      <div>
+        <ul id="search-results"></ul>
+      </div>
+      <div id="navigation-content">
+        <?php @readfile (__DIR__ . "/" . $page . ".navi.tpl"); ?>
+      </div>
     </nav>
 
     <main>
       <header>
         <div class="sidebar-menu">&#9776;</div>
-        <a href="/">
+        <a href="/index.htm" class="logo">
           <img src="/images/logo.svg" alt="Valadoc" height="42px" width="121.75px">
         </a>
       </header>
 
-      <div class="page__content">
+      <section id="content">
         <?php @readfile (__DIR__ . "/" . $page . ".content.tpl"); ?>
-      </div>
+      </section>
 
       <footer>
         <span>Copyright © <?php echo date('Y'); ?> Valadoc.org | Documentation is licensed under the same terms as its upstream</span>

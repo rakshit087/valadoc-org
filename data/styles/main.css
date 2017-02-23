@@ -84,7 +84,7 @@ nav.sidebar {
     flex: 0.15 0 auto;
     height: 100vh;
     left: -100%;
-    max-width: 75vw;
+    max-width: 300px;
     overflow-y: auto;
     position: absolute;
     right: 0;
@@ -95,13 +95,14 @@ nav.sidebar {
 
 nav.sidebar.active {
     left: 0;
+    max-width: 75vw;
 }
 
 nav.sidebar hr {
     display: none;
 }
 
-nav.sidebar > a[href="/"] {
+nav.sidebar > a.logo {
     align-items: center;
     background-color: #403757;
     display: none;
@@ -125,40 +126,48 @@ nav.sidebar > div.search > input[type="text"]:focus {
     background-color: rgba(0, 0, 0, 0.03);
 }
 
-nav.sidebar > .site_navigation {
+@custom-selector :--sidebar__ul nav.sidebar .site_navigation ul, nav.sidebar #search-results;
+
+nav.sidebar #navigation-content {
     display: block;
     flex-direction: column;
     flex: 1 1 auto;
     overflow-y: auto;
 }
 
-nav.sidebar > .site_navigation ul {
+nav.sidebar .site_navigation {
+    display: block;
+}
+
+:--sidebar__ul {
     display: flex;
     flex-direction: column;
     flex: 0 0 auto;
     overflow-y: auto;
 }
 
-nav.sidebar > .site_navigation ul:not(:first-of-type) {
+:--sidebar__ul:not(:first-of-type) {
     border-top: 1px solid #dedede;
 }
 
-nav.sidebar > .site_navigation ul:last-of-type {
+:--sidebar__ul:last-of-type {
     flex: 1 1 auto;
 }
 
-nav.sidebar > .site_navigation li {
+:--sidebar__ul li {
     align-items: center;
     display: inline-flex;
     padding: 9px 15px;
 }
 
-nav.sidebar > .site_navigation li:hover,
-nav.sidebar > .site_navigation li.active {
+:--sidebar__ul li:hover,
+:--sidebar__ul li.active {
     background-color: rgba(0, 0, 0, 0.03);
 }
 
-nav.sidebar > .site_navigation li::before {
+
+
+:--sidebar__ul li::before {
     background-position: 50%;
     background-repeat: no-repeat;
     content: "";
@@ -167,13 +176,13 @@ nav.sidebar > .site_navigation li::before {
     width: 15px;
 }
 
-nav.sidebar > .site_navigation a {
+:--sidebar__ul a {
     color: inherit;
     position: relative;
     text-decoration: none;
 }
 
-nav.sidebar > .site_navigation a::before {
+:--sidebar__ul a::before {
     background-position: 50%;
     background-repeat: no-repeat;
     content: "";
@@ -228,7 +237,7 @@ main > header > a {
     flex: 1 1 auto;
 }
 
-main > .page__content {
+main #content {
     box-sizing: content-box;
     flex: 1 0 auto;
     padding: 0 24px 15px;
@@ -276,7 +285,7 @@ main > footer a:active {
         position: static;
     }
 
-    nav.sidebar > a[href="/"] {
+    nav.sidebar > a.logo {
         display: flex;
     }
 
@@ -329,11 +338,11 @@ main > footer a:active {
     font-style: italic;
 }
 
-.site_content h1 {
+#content h1 {
     margin-bottom: 0;
 }
 
-.site_content hr {
+#content hr {
     border: 0;
     color: #b4a0c1;
     background-color: #b4a0c1;
