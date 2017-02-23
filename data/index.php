@@ -105,6 +105,7 @@ if ($first == null || $first === "index") { // Homepage
       <script type="text/javascript" src="/scripts/jquery.min.js"></script>
       <script type="text/javascript" src="/scripts/jquery.ba-hashchange.min.js"></script>
       <script type="text/javascript" src="/scripts/wtooltip.js"></script>
+      <script type="text/javascript" src="/scripts/sidebar.js"></script>
       <script type="text/javascript" src="/scripts/valadoc.js"></script>
       <script type="text/javascript" src="/scripts/main.js"></script>
     </main>
