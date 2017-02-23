@@ -165,8 +165,6 @@ nav.sidebar .site_navigation {
     background-color: rgba(0, 0, 0, 0.03);
 }
 
-
-
 :--sidebar__ul li::before {
     background-position: 50%;
     background-repeat: no-repeat;
@@ -191,6 +189,10 @@ nav.sidebar .site_navigation {
     left: -27px;
     position: absolute;
     width: 15px;
+}
+
+:--sidebar__ul .search-desc {
+    display: none;
 }
 
 main {
